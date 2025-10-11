@@ -1,0 +1,55 @@
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                if(matrix[i][j]==0){
+                     makezero(matrix,i,j);
+                }
+            }
+        }
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                if(matrix[i][j]==-1724){
+                    matrix[i][j]=0;
+                }
+            }
+        }
+        return ;
+    }
+    private static void makezero(int[][] m,int i,int j){
+        m[i][j]=0;
+        int moveleft=j-1;
+        int moveright=j+1;
+        int moveup=i-1;
+        int movedown=i+1;
+
+        while(0<=moveleft){
+            if(m[i][moveleft]==0){
+                moveleft--;
+                continue;
+            }
+            m[i][moveleft--]=-1724;
+        }
+        while(0<=moveup){
+            if(m[moveup][j]==0){
+                moveup--;
+                continue;
+            }
+            m[moveup--][j]=-1724;
+        }
+        while(moveright<m[0].length){
+            if(m[i][moveright]==0){
+                moveright++;
+                continue;
+            }
+            m[i][moveright++]=-1724;
+        }
+        while(movedown<m.length){
+            if(m[movedown][j]==0){
+                movedown++;
+                continue;
+            }
+            m[movedown++][j]=-1724;
+        }
+    }
+}
